@@ -113,6 +113,10 @@ public class Element extends Content implements Parent {
 	/** The namespace of the element */
 	protected Namespace namespace;
 
+	protected int startLine;
+
+	protected int endLine;
+
 	/** Additional namespace declarations to store on this element; useful
 	 * during output */
 	transient List<Namespace> additionalNamespaces = null;
@@ -2109,4 +2113,19 @@ public class Element extends Content implements Parent {
 
 	}
 
+	public int getStartLine() {
+		return startLine;
+	}
+
+	public void setStartLine(int startLine) {
+		this.startLine = startLine;
+	}
+
+	public int getEndLine() {
+		return endLine;
+	}
+
+	public void setEndLine(int endLine) {
+		this.endLine = endLine;
+	}
 }

@@ -600,6 +600,11 @@ public class SAXHandler extends DefaultHandler implements LexicalHandler,
 				currentLocator.getLineNumber(),
 				currentLocator.getColumnNumber(), localName, namespace);
 
+		element.setStartLine(currentLocator.getLineNumber());
+
+//		final Element element = new LineNumber(localName, namespace);
+//		((LineNumber) element).setLineNumber(currentLocator.getLineNumber());
+
 		// Take leftover declared namespaces and add them to this element's
 		// map of namespaces
 		if (declaredNamespaces.size() > 0) {
@@ -863,6 +868,7 @@ public class SAXHandler extends DefaultHandler implements LexicalHandler,
 	public void endElement(final String namespaceURI, final String localName,
 			final String qName) throws SAXException {
 
+		currentElement.setEndLine(currentLocator.getLineNumber());
 		if (suppress)
 			return;
 
